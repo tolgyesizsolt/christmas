@@ -43,6 +43,7 @@
       {
         color: 0xff0000,
         forgatas: false, // boolean (checkbox)
+        text:"Ctrl + bal egér gomb",
         reset: function() { resetModell() },
         hideText: false,
         topStarVisible: false,
@@ -51,8 +52,12 @@
         
         var foldermain = gui.addFolder('Főadatok');/*Folder*/
 
-        foldermain.addColor(parameters, 'color' ).name('Karácsonyfa dísz színe').onChange( function() { ornamentColor = parameters.color; } );
+        foldermain.addColor(parameters, 'color' ).name('Karácsonyfadísz színe').onChange( function() { ornamentColor = parameters.color; } );
 
+        foldermain.add(
+          parameters,
+          'text').name("Dísz hozzáadása");
+        
         foldermain.add(
           parameters,
           'forgatas').name('Modell forgatása');
@@ -91,7 +96,7 @@
       animate();
       
       function init() {
-        alert("Boldog Karácsonyt, ebben a kis interaktív jelenetben a jobb oldali menüben kiválaszthatsz egy színt a díszeidnek, majd az egér bal gombjával klikkelve a control(ctrl) gomb megnyomása melettt a kíváasztott színű fenyődisszel díszítheted föl a jelenet bármejik objektumát. Jó szórakozást kívánok!");
+        alert("Ebben a kis interaktív jelenetben a jobb oldali menüben kiválaszthatsz egy színt a díszeidnek, majd az egér bal gombjával klikkelve a control (ctrl) gomb megnyomása mellett a kiválasztott színű fenyődísszel díszítheted föl a jelenet bármelyik objektumát. Boldog Karácsonyt!");
 
         renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
